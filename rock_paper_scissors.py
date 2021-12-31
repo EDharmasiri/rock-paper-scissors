@@ -3,11 +3,6 @@ import random
 
 availableChoices = ["r", "p", "s"]
 
-winCount = 0
-lossCount = 0
-tieCount = 0
-
-
 def printHeader():
     print("ROCK, PAPER, SCISSORS")
     print(str(winCount) + " Wins, " + str(lossCount) + " Losses, " + str(tieCount) + " Ties")
@@ -15,10 +10,6 @@ def printHeader():
 
 
 def showdown(userChoice):
-    global winCount
-    global lossCount
-    global tieCount
-    global computerChoice
 # while True:
     printHeader()
     # userChoice = input().lower()
@@ -27,53 +18,52 @@ def showdown(userChoice):
     if userChoice == "r":
         print("ROCK versus...")
         if computerChoice == "s":
-            winCount = winCount + 1
             print("SCISSORS")
             print("You win!")
+            return 1, 0, 0
 
         if computerChoice == "p":
-            lossCount = lossCount + 1
             print("PAPER")
             print("You lose!")
+            return 0, 1, 0
 
         if computerChoice == "r":
-            tieCount = tieCount + 1
             print("ROCK")
             print("It's a tie!")
-
+            return 0, 0, 1
 
     elif userChoice == "p":
         print("PAPER versus...")
         if computerChoice == "s":
-            lossCount = lossCount + 1
             print("SCISSORS")
             print("You lose!")
+            return 1, 0, 0
 
         if computerChoice == "r":
-            winCount = winCount + 1
             print("ROCK")
             print("You win!")
+            return 0, 1, 0
 
         if computerChoice == "p":
-            tieCount = tieCount + 1
             print("PAPER")
             print("It's a tie!")
+            return 0, 0, 1
 
     elif userChoice == "s":
         if computerChoice == "r":
-            lossCount = lossCount + 1
             print("ROCK")
             print("You lose!")
+            return 1, 0, 0
 
         if computerChoice == "p":
-            winCount = winCount + 1
             print("PAPER")
             print("You win!")
+            return 0, 1, 0
 
         if computerChoice == "s":
-            tieCount = tieCount + 1
             print("s")
             print("It's a tie!")
+            return 0, 0, 1
 
     elif userChoice == "q":
         sys.exit()
